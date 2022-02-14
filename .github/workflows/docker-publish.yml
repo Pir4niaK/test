@@ -30,7 +30,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: domochip/test
+          images: ${{ github.repository }}
       
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
