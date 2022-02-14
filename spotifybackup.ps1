@@ -13,5 +13,5 @@ while ($true) {
     Write-Host 'Working'
 
     # Wait 1 second
-    Start-Sleep -Seconds 1
+    Start-Sleep -Seconds 2
 }
