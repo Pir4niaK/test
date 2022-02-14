@@ -33,5 +33,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: latest-beta
+          tags: domochip/test:latest-beta
           labels: ${{ steps.meta.outputs.labels }}
