@@ -34,7 +34,6 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
-          context: .
           push: true
           tags: domochip/test:latest-beta
           labels: ${{ steps.meta.outputs.labels }}
