@@ -30,6 +30,7 @@ jobs:
         uses: docker/metadata-action@v3
         with:
           images: ${{ github.repository }}
+          tags : type=raw,latest-dev
       
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
