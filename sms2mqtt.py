@@ -8,7 +8,7 @@ import gammu
 import json
 
 
-# callback when the broker responds to our connection request.
+# callback when the broker responds to our connection de request.
 def on_mqtt_connect(client, userdata, flags, rc):
     logging.info("Connected to MQTT host")
     client.publish(f"{mqttprefix}/connected", "1", 0, True)
