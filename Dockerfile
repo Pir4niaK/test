@@ -1,11 +1,13 @@
-FROM mcr.microsoft.com/powershell:latest
+FROM python:3.6.13-alpine3.12
 
-# temporary install from github
-RUN pwsh -c 'Install-Module Spotishell -force'
+RUN apk add --no-cache gammu-dev
+
+RUN apk add --no-cache --virtual .build-deps gcc musl-dev \
+     && pip install python-gammu paho-mqtt \
+     && apk del .build-deps gcc musl-dev
 
 WORKDIR /app
-COPY spotifybackup.ps1 .
 
-ENV SPOTISHELL_STORE_PATH=/data
+COPY sms2mqtt.py .
 
-ENTRYPOINT ["pwsh", "spotifybackup.ps1"]
+ENTRYPOINT ["python", "/app/sms2mqtt.py"]
